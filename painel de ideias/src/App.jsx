@@ -11,7 +11,7 @@ function Adicionarideia(event) {
   event.preventDefault();
 
  if (novaideia.trim() === "") {
-  setErro("Adicione uma ideia!");
+  setErro("Digite sua ideia antes de adicionar.");
   return;
 }
   
@@ -48,10 +48,14 @@ return (
     <div>
 
       <h1>PAINEL DA MALU</h1>
+      <h2>Anote suas ideias para nao perde-las</h2>
 
   <form onSubmit = {Adicionarideia}>
 <input type="text" value={novaideia}
- onChange={(event) => setNovaideia(event.target.value)}
+onChange={(event) => {
+  setNovaideia(event.target.value);
+  setErro("");
+}}
 
 />
   <button type = "submit">Adicionar</button>
