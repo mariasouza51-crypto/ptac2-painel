@@ -1,19 +1,17 @@
-# React + Vite
+O que é o projeto? 
+O Painel da Malu é um projeto feito em React para organizar ideias. Nele, é possível adicionar novas ideias, marcar as que já foram concluídas, remover ideias e acompanhar um contador com o total de ideias e as concluídas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Como rodar?
+Para rodar o projeto, primeiro instale as dependências:
+npm install
+npm run dev
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Minhas decisões foram:
+usei useState para controlar as ideias, o campo de texto e a mensagem de erro.
+map() para mostrar as ideias na tela.
+Cada ideia recebe um id usando Date.now().
+map() e spread para marcar uma ideia como concluída.
+filter() para remover uma ideia.
+Fiz o contador usando a própria lista de ideias, sem criar outro estado.
+Usei .trim() para não deixar adicionar ideias vazias.
+Quando uma ideia é concluída, o texto fica riscado.
