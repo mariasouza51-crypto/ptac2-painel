@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./App.css";
 
 function App (){
   const [ideias, setIdeias] = useState([]);
@@ -51,11 +52,18 @@ return (
   {erro && <p>{erro}</p>}
 
   <ul>
-
   {ideias.map((ideia) => (
-  <li key={ideia.id}>{ideia.texto}</li>
-))}
-
+    <li key={ideia.id}>
+      <input
+        type="checkbox"
+        checked={ideia.feita}
+        onChange={() => alternarFeita(ideia.id)}
+      />
+      <span className={ideia.feita ? "feita" : ""}>
+  {ideia.texto}
+      </span>
+    </li>
+  ))}
 </ul>
 
 
