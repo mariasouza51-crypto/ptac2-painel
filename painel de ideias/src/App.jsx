@@ -6,22 +6,38 @@ function App (){
   const [erro, setErro] = useState("");
 
 
-function Adicionarideia (event){
+function Adicionarideia(event) {
   event.preventDefault();
 
-  if(novaideia.trim() === ""){
-    setErro("Adicione uma ideia!");
-    return;
-  }
+ if (novaideia.trim() === "") {
+  setErro("Adicione uma ideia!");
+  return;
+}
+  
 
-  setIdeias([... ideias, novaideia]);
+  const nova = {
+    id: Date.now(),
+    texto: novaideia,
+    feita: false
+  };
+
+  setIdeias([...ideias, nova]);
   setNovaideia("");
   setErro("");
-
+}
+function alternarFeita(id) {
+  setIdeias(
+    ideias.map((ideia) =>
+      ideia.id === id
+        ? { ...ideia, feita: !ideia.feita }
+        : ideia
+    )
+  );
 }
 
 return (
     <div>
+
       <h1>PAINEL DA MALU</h1>
 
   <form onSubmit = {Adicionarideia}>
@@ -31,13 +47,17 @@ return (
 />
   <button type = "submit">Adicionar</button>
   </form>
+
   {erro && <p>{erro}</p>}
+
   <ul>
-  {ideias.map((ideia, index) => (
-    <li key={index}>{ideia}</li>
-  ))}
+
+  {ideias.map((ideia) => (
+  <li key={ideia.id}>{ideia.texto}</li>
+))}
 
 </ul>
+
 
     </div>
 );
