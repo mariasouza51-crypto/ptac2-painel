@@ -35,6 +35,14 @@ function alternarFeita(id) {
     )
   );
 }
+function removerIdeia(id) {
+  setIdeias(
+    ideias.filter((ideia) => ideia.id !== id)
+  );
+}
+
+const totalIdeias = ideias.length;
+const totalConcluidas = ideias.filter((ideia) => ideia.feita).length;
 
 return (
     <div>
@@ -62,9 +70,14 @@ return (
       <span className={ideia.feita ? "feita" : ""}>
   {ideia.texto}
       </span>
+      <button onClick={() => removerIdeia(ideia.id)}>✕</button>
     </li>
   ))}
 </ul>
+
+<footer>
+  {`${totalIdeias} ideias no painel · ${totalConcluidas} concluídas`}
+</footer>
 
 
     </div>
